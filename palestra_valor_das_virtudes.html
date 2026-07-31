@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Valor das Virtudes — Círculo de Formação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #f4efe4;
+    --paper-2: #ece3d1;
+    --ink: #2b241c;
+    --ink-soft: #5a5042;
+    --wine: #7a2331;
+    --wine-deep: #591722;
+    --gold: #a8823c;
+    --gold-soft: #cdb27a;
+    --rule: #c9bb9c;
+    --card: #fbf8f1;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --shadow-sm: 0 4px 6px rgba(43, 36, 28, 0.05);
+    --shadow-md: 0 10px 30px rgba(43, 36, 28, 0.08);
+    --shadow-lg: 0 20px 40px rgba(43, 36, 28, 0.12);
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  * { box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.8;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a8823c' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .page { 
+    max-width: 840px; 
+    margin: 0 auto; 
+    padding: 0 32px 120px; 
+  }
+
+  /* Header / Hero */
+  .hero {
+    position: relative;
+    padding: 80px 32px 60px;
+    text-align: center;
+    background: radial-gradient(ellipse at top, rgba(168,130,60,0.08), transparent 70%), var(--paper);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-img-container {
+    margin-bottom: 30px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 4px solid var(--card);
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/3;
+    animation: fadeUp 1s ease-out;
+  }
+
+  .hero-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+  }
+  
+  .hero-img-container:hover img {
+    transform: scale(1.03);
+  }
+
+  .section-img-container {
+    margin: 32px auto 40px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--card);
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16/9;
+  }
+  
+  .section-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+  }
+
+  .section-img-container:hover img {
+    transform: scale(1.03);
+  }
+
+  .hero .eyebrow { 
+    font-family: var(--sans); 
+    letter-spacing: .3em; 
+    text-transform: uppercase; 
+    font-size: 13px; 
+    color: var(--gold); 
+    font-weight: 600; 
+    margin-bottom: 16px;
+    animation: fadeUp 1s ease-out 0.2s both;
+  }
+
+  .hero h1 { 
+    font-size: clamp(2.5rem, 6vw, 4rem); 
+    margin: 0 0 16px; 
+    color: var(--wine-deep); 
+    font-weight: 600; 
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    animation: fadeUp 1s ease-out 0.4s both;
+  }
+
+  .hero .sub { 
+    font-style: italic; 
+    color: var(--ink-soft); 
+    font-size: 1.3rem; 
+    max-width: 650px; 
+    margin: 0 auto; 
+    animation: fadeUp 1s ease-out 0.6s both;
+  }
+
+  .hero .meta { 
+    margin-top: 32px; 
+    font-family: var(--sans); 
+    font-size: 14px; 
+    color: var(--ink-soft); 
+    display: flex; 
+    gap: 16px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    animation: fadeUp 1s ease-out 0.8s both;
+  }
+
+  .hero .meta span { 
+    border: 1px solid var(--rule); 
+    padding: 6px 16px; 
+    background: var(--card);
+    border-radius: 30px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+  }
+
+  .hero .meta span:hover {
+    border-color: var(--gold);
+    color: var(--wine-deep);
+    transform: translateY(-2px);
+  }
+
+  /* Roteiro (TOC) */
+  .roteiro { 
+    margin: 60px 0; 
+    background: rgba(251, 248, 241, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--rule); 
+    border-radius: var(--radius-md);
+    padding: 32px; 
+    font-family: var(--sans); 
+    font-size: 14px; 
+    color: var(--ink-soft); 
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .roteiro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--gold);
+  }
+
+  .roteiro-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--wine-deep);
+    margin: 0 0 16px;
+    font-weight: 600;
+  }
+
+  .roteiro-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+  }
+
+  .roteiro span { 
+    display: flex; 
+    align-items: center;
+    padding: 8px;
+    border-radius: 6px;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .roteiro span:hover {
+    background: var(--paper-2);
+    color: var(--wine-deep);
+    transform: translateX(5px);
+  }
+
+  .roteiro b { 
+    color: var(--gold); 
+    margin-right: 12px;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: right;
+  }
+
+  /* Blocks */
+  section.block { 
+    margin: 80px 0; 
+    padding-top: 4px; 
+  }
+  
+  .block-label { 
+    font-family: var(--sans); 
+    font-size: 13px; 
+    letter-spacing: .25em; 
+    text-transform: uppercase; 
+    color: var(--gold); 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+    margin-bottom: 12px; 
+    font-weight: 600;
+  }
+
+  .block-label::after { 
+    content: ""; 
+    flex: 1; 
+    height: 1px; 
+    background: linear-gradient(90deg, var(--rule), transparent); 
+  }
+
+  .block h2 { 
+    font-size: 2.2rem; 
+    color: var(--wine-deep); 
+    font-weight: 600; 
+    margin: 0 0 24px; 
+    letter-spacing: -0.01em;
+  }
+  
+  .block h3 { 
+    font-size: 1.4rem; 
+    color: var(--wine); 
+    font-weight: 600; 
+    margin: 40px 0 16px; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .block h3::before {
+    content: '◆';
+    color: var(--gold-soft);
+    font-size: 0.8rem;
+  }
+
+  .block p { 
+    margin: 0 0 24px; 
+    color: var(--ink);
+  }
+
+  /* Blockquotes */
+  blockquote { 
+    position: relative;
+    margin: 40px 0; 
+    padding: 32px 40px; 
+    background: var(--card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    font-style: italic; 
+    color: var(--wine-deep); 
+    font-size: 1.1rem;
+    line-height: 1.9;
+    border: 1px solid var(--rule);
+    z-index: 1;
+  }
+  
+  blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 80px;
+    color: var(--gold);
+    opacity: 0.2;
+    font-family: var(--serif);
+    line-height: 1;
+    z-index: -1;
+  }
+
+  blockquote cite { 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-style: normal; 
+    font-family: var(--sans); 
+    font-size: 13px; 
+    color: var(--ink-soft); 
+    margin-top: 16px; 
+    font-weight: 500;
+  }
+  
+  blockquote cite::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* Grid & Cards */
+  .virtue-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 24px; 
+    margin: 40px 0; 
+  }
+  
+  .vcard { 
+    background: var(--card); 
+    border: 1px solid var(--rule); 
+    padding: 32px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold-soft), var(--wine));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  
+  .vcard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--gold-soft);
+  }
+
+  .vcard:hover::before {
+    transform: scaleX(1);
+  }
+
+  .vcard h4 { 
+    margin: 8px 0 12px; 
+    color: var(--wine-deep); 
+    font-size: 1.3rem; 
+    font-weight: 600;
+  }
+
+  .vcard .latin { 
+    font-family: var(--sans); 
+    font-size: 12px; 
+    color: var(--gold); 
+    text-transform: uppercase; 
+    letter-spacing: .15em; 
+    font-weight: 600;
+  }
+
+  .vcard p { 
+    font-size: 1rem; 
+    margin: 0;
+    color: var(--ink-soft);
+  }
+  
+  /* Highlights & Callouts */
+  .pergunta { 
+    background: var(--paper-2); 
+    border: 1px solid var(--rule); 
+    border-radius: var(--radius-md);
+    padding: 24px 32px; 
+    margin: 32px 0; 
+    font-size: 1.05rem; 
+    font-style: italic; 
+    color: var(--wine-deep); 
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+  }
+  
+  .pergunta::before {
+    content: '?';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: var(--gold);
+    opacity: 0.15;
+    font-family: var(--serif);
+    font-style: normal;
+  }
+
+  /* Diagrams */
+  .diagram-wrap { 
+    margin: 48px 0; 
+    text-align: center; 
+    background: var(--card);
+    padding: 40px 20px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .diagram-caption { 
+    font-family: var(--sans); 
+    font-size: 13.5px; 
+    color: var(--ink-soft); 
+    margin-top: 16px; 
+    font-style: italic; 
+  }
+
+  /* Footer & Refs */
+  .refs { 
+    font-family: var(--sans); 
+    font-size: 13.5px; 
+    color: var(--ink-soft); 
+    background: var(--card); 
+    border: 1px solid var(--rule); 
+    border-radius: var(--radius-md);
+    padding: 32px 40px; 
+    margin-top: 100px; 
+  }
+
+  .refs h3 { 
+    font-family: var(--serif); 
+    color: var(--wine-deep); 
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+
+  footer.end { 
+    text-align: center; 
+    margin-top: 80px; 
+    padding-top: 32px; 
+    border-top: 1px solid var(--rule); 
+    font-family: var(--sans); 
+    font-size: 13px; 
+    letter-spacing: .15em; 
+    color: var(--ink-soft); 
+    text-transform: uppercase; 
+    font-weight: 500;
+  }
+  
+  footer.end::before {
+    content: '✧';
+    display: block;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  strong {
+    color: var(--wine-deep);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-img-container">
+    <img src="hero_illustration.png" alt="O Valor das Virtudes Ilustração">
+  </div>
+  <div class="eyebrow">Círculo de Formação</div>
+  <h1>O Valor das Virtudes</h1>
+  <p class="sub">Cristo, modelo perfeito de virtude — e o lugar onde acontece a verdadeira mudança</p>
+  <div class="meta">
+    <span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      ≈ 1h20
+    </span>
+    <span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+      Texto para leitura em voz alta
+    </span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="roteiro">
+    <div class="roteiro-title">Roteiro</div>
+    <div class="roteiro-list">
+      <span><b>I.</b> Do pensamento ao destino</span>
+      <span><b>II.</b> O que é — e o que não é — virtude</span>
+      <span><b>III.</b> Estacas e pilares</span>
+      <span><b>IV.</b> As quatro virtudes cardeais</span>
+      <span><b>V.</b> Como se conquistam as virtudes</span>
+      <span><b>VI.</b> Máscaras e beatice</span>
+      <span><b>VII.</b> Cristo, modelo de virtude</span>
+      <span><b>VIII.</b> Onde está a verdadeira mudança</span>
+      <span><b>IX.</b> Fechamento</span>
+    </div>
+  </div>
+
+  <!-- BLOCO 1 -->
+  <section class="block" id="b1">
+    <span class="block-label">I</span>
+    <h2>Do pensamento ao destino</h2>
+
+    <p>Quero começar com uma frase. Deixem que ela vá caindo devagar, palavra por palavra, quase como um exame de consciência:</p>
+
+    <blockquote>
+      "Cuide os teus pensamentos, porque eles se convertem em palavras.<br>
+      Cuida as tuas palavras, porque elas se convertem em ações.<br>
+      Cuida as tuas ações, porque elas se convertem em hábitos.<br>
+      Cuida os teus hábitos, porque eles se convertem no teu caráter.<br>
+      Cuida o teu caráter, porque ele se converte no teu destino."
+    </blockquote>
+
+    <p>Faz alguns anos, essa frase me chamou a atenção num filme sobre Margaret Thatcher, "A Dama de Ferro". Fui atrás dela na internet depois — e descobri que não é dela; ela só a repetia. É atribuída, com alguma incerteza ainda, a um empresário americano chamado Frank Outlaw. Outras vezes vocês vão ouvir por aí que é de Gandhi, ou até de Lao Tsé — mas não é. E, sinceramente, pouco importa quem disse primeiro. O que importa é o encadeamento que ela descreve: pensamento, palavra, ação, hábito, caráter, destino. É exatamente esse encadeamento que eu quero abrir com vocês hoje, uma dobra de cada vez.</p>
+
+    <p>Estou lendo agora, por acaso, um livro que se chama "Os 7 Hábitos das Pessoas Altamente Eficazes", do Stephen Covey. E vale a pena contar um pouco da história desse livro, porque ela conecta direto com o que eu quero dizer. Covey passou anos — parte disso como pesquisa do seu doutorado — estudando a literatura americana sobre sucesso e realização pessoal, mais ou menos dos últimos duzentos anos. E ele percebeu uma virada interessante: durante muito tempo, praticamente todos os livros sobre "ser bem-sucedido" falavam de caráter — integridade, humildade, coragem, paciência, fidelidade à palavra dada. Só depois da Primeira Guerra Mundial é que essa literatura vira o eixo para outra coisa: a aparência, a técnica de comunicação, a estratégia de causar boa impressão nos outros.</p>
+
+    <p>Covey batizou essas duas visões com dois nomes que eu acho muito precisos: <strong>Ética da Personalidade</strong> — voltada para fora, para a imagem, para as técnicas de agradar e influenciar — e <strong>Ética do Caráter</strong> — voltada para dentro, construída sobre princípios estáveis, que não mudam com a moda do momento. E é daí que nasce o convite central do livro dele: viver uma vida baseada em princípios, não em técnicas nem em aparências.</p>
+
+    <p>Pois bem — o que Covey chama de "caráter", construído sobre princípios, os gregos já chamavam de <em>areté</em>. É a palavra que a gente traduz por <strong>virtude</strong>: uma excelência, uma perfeição da personalidade. E São Josemaria dizia algo que vai guiar toda a nossa conversa hoje: as virtudes sobrenaturais se apoiam nas virtudes humanas. Por isso as virtudes humanas importam tanto — inclusive, e sobretudo, para quem quer levar a sério a vida cristã.</p>
+
+    <p>E aqui entra a responsabilidade que é o ponto de partida de tudo. Quando a gente lê o Evangelho com atenção, uma verdade volta sempre: nós somos responsáveis pela realização da nossa própria vida. A graça de Deus é gratuita — ela inicia, inspira, fortalece — mas não é dada a uma pedra nem a uma planta. É dada a seres livres, que podem dizer sim ou não, que podem fazer frutificar o dom recebido ou desperdiçá-lo.</p>
+
+    <p>E Cristo, para explicar isso, usa uma imagem que vai atravessar a nossa conversa inteira hoje: a vida cristã como a construção de um edifício. E Ele aponta três formas de fracassar nessa construção. Vejam com vocês:</p>
+
+    <div class="virtue-grid">
+      <div class="vcard">
+        <span class="latin">Mt 7,24-27</span>
+        <h4>A falha do alicerce</h4>
+        <p>Uma casa construída sobre a areia. Vem a tempestade, e a ruína é grande — não porque faltou boa vontade, mas porque faltou uma base sólida.</p>
+      </div>
+      <div class="vcard">
+        <span class="latin">Lc 14,28-30</span>
+        <h4>A falha do projeto</h4>
+        <p>O homem que começa a construir uma torre sem calcular o custo, e a deixa pela metade — motivo de riso para quem passa. Quantas vidas ficam "a meia construção"!</p>
+      </div>
+      <div class="vcard">
+        <span class="latin">1 Cor 3,9-15</span>
+        <h4>A falha do material</h4>
+        <p>São Paulo fala em construir com ouro, prata e pedras preciosas — ou com madeira, feno e palha. O fogo do dia do Senhor vai revelar o que vale o trabalho de cada um.</p>
+      </div>
+    </div>
+
+    <p>É esta terceira falha — a dos materiais — que eu quero explorar com vocês hoje, do começo ao fim. Porque o material com que se constrói uma vida cristã sólida, capaz de resistir ao fogo e à tempestade, tem um nome preciso: <strong>as virtudes.</strong></p>
+
+    <p>Então esse é o meu objetivo para hoje: que vocês saiam daqui sabendo por que as virtudes importam, quais são, como se estruturam, como se conquistam — e, sobretudo, como elas nos aproximam de Cristo, que é o modelo perfeito e o ponto de chegada de tudo isso.</p>
+  </section>
+
+  <!-- BLOCO 2 -->
+  <section class="block" id="b2">
+    <span class="block-label">II</span>
+    <h2>O que é — e o que não é — virtude</h2>
+
+    <p>A definição mais simples de virtude é "hábito bom" — uma disposição estável que se manifesta em atitudes contínuas. Mas essa definição sozinha é perigosa, porque nem tudo que parece virtude é virtude de verdade. Antes de eu dizer o que ela é, deixem-me desmascarar com vocês quatro miragens — aparências de virtude que enganam como um oásis no deserto.</p>
+
+    <p>A primeira são as <strong>virtudes vaidosas</strong>. Jesus fala explicitamente delas no Sermão da Montanha: "guardai-vos de fazer as vossas boas obras diante dos homens, para serdes vistos por eles" (Mt 6,1). Tem a virtude-vitrine, vivida para exibição, e a virtude-espelho, vivida para autoadmiração — como o fariseu que subiu ao templo e agradeceu a Deus por não ser como os outros homens (Lc 18,9-14).</p>
+
+    <p>A segunda são os <strong>hábitos rotineiros</strong>. Gente muito cumpridora — do dever, da religião, da família — mas de forma morna, forçada, sem alma. "Este povo me honra com os lábios, mas o coração está longe de mim" (Mt 15,7). Não é cumprir; é cumpri-mentir.</p>
+
+    <p>A terceira são as <strong>inclinações temperamentais</strong>. Bons sentimentos naturais, fáceis, agradáveis — mas que não custam esforço nenhum, e que escondem uma segunda face, exigente só quando convém. É aquela pessoa amável e sociável com os amigos, mas insuportável em casa.</p>
+
+    <p>E a quarta são as <strong>virtudes-fogueira</strong>. Ardem uma noite inteira e depois só sobram cinzas. É Pedro, na Última Ceia, dizendo com toda a veemência: "ainda que seja preciso morrer contigo, não te renegarei!" (Mc 14,31) — e, horas depois, dormindo no Horto e negando três vezes.</p>
+
+    <p>Descartadas essas quatro miragens, fica a definição verdadeira, a que o Catecismo nos dá: as virtudes humanas são atitudes firmes, disposições estáveis, perfeições habituais da inteligência e da vontade, que regulam os nossos atos, ordenando as nossas paixões e nos guiando segundo a razão e a fé (CIC 1804). Elas não nascem prontas — como não nasce pronto nada que tenha valor — e elas nos dão, diz o próprio Catecismo, domínio e alegria. "Pessoa virtuosa é aquela que livremente pratica o bem."</p>
+  </section>
+
+  <!-- BLOCO 3 -->
+  <section class="block" id="b3">
+    <span class="block-label">III</span>
+    <h2>Estacas e pilares</h2>
+
+    <p>Voltemos à imagem do edifício. Para fundações profundas de grandes construções, se usam estacas — cravadas bem fundo, invisíveis — e é sobre elas que se erguem os pilares que sustentam tudo o que a gente vê.</p>
+
+    <p>As estacas são as virtudes humanas, também chamadas morais: prudência, justiça, fortaleza e temperança, e as muitas virtudes "satélites" ao redor delas — coragem, generosidade, sobriedade, amizade, constância, mansidão. São humanas porque qualquer pessoa, de qualquer época e cultura, pode e deve vivê-las. Sobre isso concordam a filosofia grega, a sabedoria oriental, a lei de Moisés e o Cristianismo.</p>
+
+    <p>Os pilares são as virtudes sobrenaturais, as infusas: as teologais — fé, esperança, caridade —, puro dom gratuito de Deus, e as virtudes morais já elevadas pela graça. E elas se firmam bem em nós quando encontram apoio sólido nas virtudes humanas.</p>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 720 340" width="100%" style="max-width:600px">
+        <defs>
+          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#a8823c" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#7a2331" stop-opacity="0.25"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="270" width="720" height="70" fill="#e6dbc2"/>
+        <rect x="150" y="150" width="26" height="160" fill="#5a5042"/>
+        <rect x="544" y="150" width="26" height="160" fill="#5a5042"/>
+        <rect x="150" y="150" width="420" height="18" fill="url(#water)"/>
+        <text x="360" y="90" text-anchor="middle" font-size="15" fill="#7a2331" font-weight="700">A GRAÇA</text>
+        <text x="360" y="112" text-anchor="middle" font-size="12" fill="#5a5042" font-style="italic">a água que corre livre — dom gratuito de Deus</text>
+        <path d="M170 168 Q 250 190 330 168 T 550 168" stroke="#7a2331" stroke-width="3" fill="none" opacity="0.5"/>
+        <path d="M170 200 Q 250 222 330 200 T 550 200" stroke="#a8823c" stroke-width="3" fill="none" opacity="0.55"/>
+        <path d="M170 232 Q 250 254 330 232 T 550 232" stroke="#7a2331" stroke-width="3" fill="none" opacity="0.4"/>
+        <rect x="140" y="90" width="46" height="60" fill="#a8823c" rx="4"/>
+        <rect x="534" y="90" width="46" height="60" fill="#a8823c" rx="4"/>
+        <text x="163" y="80" text-anchor="middle" font-size="11" fill="#7a2331" font-family="var(--sans)" font-weight="600">pilar</text>
+        <text x="557" y="80" text-anchor="middle" font-size="11" fill="#7a2331" font-family="var(--sans)" font-weight="600">pilar</text>
+        <text x="163" y="150" text-anchor="middle" font-size="11" fill="#f4efe4" font-family="var(--sans)">estaca</text>
+        <text x="557" y="150" text-anchor="middle" font-size="11" fill="#f4efe4" font-family="var(--sans)">estaca</text>
+        <text x="360" y="325" text-anchor="middle" font-size="15" fill="#2b241c" font-weight="700">AS VIRTUDES HUMANAS</text>
+      </svg>
+      <div class="diagram-caption">Os muros do canal contêm e conduzem a água da graça. Sem muros, a água se perde.</div>
+    </div>
+
+    <p>Reparem bem nessa figura, porque eu vou voltar a ela várias vezes hoje: os muros do canal contêm e conduzem a água. Sem muros, a água se derrama e se perde. A conclusão que importa é esta: a virtude infusa não substitui a virtude humana — ela se apoia nela. Um homem sem rijeza natural não sustenta a fortaleza sobrenatural; a magnanimidade infusa não se desenvolve numa alma humanamente pusilânime. Como dizia São Josemaria: "as virtudes humanas são o fundamento das sobrenaturais" (Amigos de Deus, 91-92).</p>
+
+    <p>O Cristianismo não rejeitou a sabedoria clássica sobre as virtudes — ele a assumiu. Mas corrigiu quatro pontos cegos do ideal pagão. Primeiro: o virtuoso pagão é autossuficiente, ignora a humildade. Segundo: ele ignora a cura interior pelo arrependimento e o perdão. Terceiro: não tem o amor como centro, desconhece a caridade. E quarto: não conhece o modelo supremo e definitivo, que é Jesus Cristo, perfeito Deus e perfeito homem.</p>
+  </section>
+
+  <!-- BLOCO 4 -->
+  <section class="block" id="b4">
+    <span class="block-label">IV</span>
+    <h2>As quatro virtudes cardeais</h2>
+
+    <p>Elas se chamam cardeais porque, em latim, <em>cardo</em> significa eixo, ou dobradiça — todas as demais virtudes humanas se agrupam em torno destas quatro. Vamos passar por elas uma a uma.</p>
+
+    <div class="section-img-container">
+      <img src="cardinal_virtues.png" alt="Ilustração das Virtudes Cardeais">
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 480 480" width="100%" style="max-width:380px">
+        <circle cx="240" cy="240" r="205" fill="none" stroke="#c9bb9c" stroke-width="1.5" stroke-dasharray="8 8"/>
+        <circle cx="240" cy="240" r="65" fill="#7a2331"/>
+        <text x="240" y="235" text-anchor="middle" fill="#f4efe4" font-size="14" font-family="var(--serif)" font-weight="700">VIDA</text>
+        <text x="240" y="255" text-anchor="middle" fill="#f4efe4" font-size="14" font-family="var(--serif)" font-weight="700">VIRTUOSA</text>
+        
+        <g transform="translate(0, -10) hover">
+          <circle cx="240" cy="60" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
+          <text x="240" y="55" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">PRUDÊNCIA</text>
+          <text x="240" y="72" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">auriga virtutum</text>
+        </g>
+        
+        <g transform="translate(10, 0)">
+          <circle cx="420" cy="240" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
+          <text x="420" y="235" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">JUSTIÇA</text>
+          <text x="420" y="252" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">dar o que é devido</text>
+        </g>
+        
+        <g transform="translate(0, 10)">
+          <circle cx="240" cy="420" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
+          <text x="240" y="415" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">FORTALEZA</text>
+          <text x="240" y="432" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">empreender e resistir</text>
+        </g>
+        
+        <g transform="translate(-10, 0)">
+          <circle cx="60" cy="240" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
+          <text x="60" y="235" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">TEMPERANÇA</text>
+          <text x="60" y="252" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">moderar, não anular</text>
+        </g>
+        
+        <line x1="240" y1="112" x2="240" y2="175" stroke="#c9bb9c" stroke-width="2"/>
+        <line x1="365" y1="240" x2="305" y2="240" stroke="#c9bb9c" stroke-width="2"/>
+        <line x1="240" y1="365" x2="240" y2="305" stroke="#c9bb9c" stroke-width="2"/>
+        <line x1="115" y1="240" x2="175" y2="240" stroke="#c9bb9c" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <h3>Prudência — a sabedoria da vida</h3>
+    <p>O Catecismo a define assim: é a virtude que dispõe a razão prática a discernir, em qualquer circunstância, o nosso verdadeiro bem, e a escolher os meios adequados para o pôr em prática (CIC 1806). Os antigos a chamavam de <em>auriga virtutum</em> — o cocheiro que segura as rédeas de todas as outras virtudes. Santo Tomás ensina que ela age em três passos: primeiro a reflexão — vencer a preguiça de pensar, ter um tempo fixo para isso, pedir conselho com humildade; depois o juízo — discernir o ponto de equilíbrio, colocar Deus como prioridade; e por fim a decisão — porque, como se diz, o homem prudente é lento na reflexão e rápido na execução.</p>
+    <p class="pergunta">Eu pergunto para vocês: vocês têm o hábito de se aconselhar antes de uma decisão séria, ou caem na autossuficiência? E, às vezes, a prudência de vocês não é, na verdade, medo disfarçado de cautela?</p>
+
+    <h3>Justiça — dar a cada um o que lhe é devido</h3>
+    <p>É a vontade constante e firme de dar a Deus e ao próximo o que lhes é devido (CIC 1807). Começa pelo respeito à dignidade de cada pessoa — imagem de Deus, alguém por quem Cristo morreu — e se estende à equidade nos juízos, à verdade nas palavras, e até ao direito e ao dever de calar, quando falar feriria a caridade sem necessidade nenhuma. Como Jesus mesmo disse: "tudo o que quereis que os homens vos façam, fazei-o vós a eles" (Mt 7,12).</p>
+    <p class="pergunta">Eu desprezo, discrimino ou ridicularizo alguém — mesmo que seja só em pensamento? Eu falo a verdade com justiça, ou uso a "sinceridade" como desculpa para ferir?</p>
+
+    <h3>Fortaleza — empreender e resistir</h3>
+    <p>O Catecismo diz que ela dá segurança nas dificuldades, firmeza e constância na procura do bem, e nos torna capazes de resistir às tentações, de superar os obstáculos, de vencer o medo, inclusive o medo da morte (CIC 1808). Ela tem duas faces: a capacidade de empreender o que é difícil, e a capacidade de resistir e suportar. E dela nascem virtudes satélites: a magnanimidade, que é aspirar a metas grandes; a paciência, que é suportar o mal sem se revoltar; e a constância, que é não desistir no longo prazo.</p>
+    <p class="pergunta">Eu fujo de tarefas só porque são difíceis? Vivo na cultura do menor esforço? Tenho medo do sacrifício, esquecendo que nenhum ideal se realiza sem ele?</p>
+
+    <h3>Temperança — moderar, não anular</h3>
+    <p>Ela modera a atração pelos prazeres e procura o equilíbrio no uso dos bens criados; assegura o domínio da vontade sobre os instintos, e mantém os desejos dentro dos limites da honestidade (CIC 1809). Reparem que o Catecismo não diz "reprime" nem "suprime" — o Cristianismo não é inimigo do corpo nem do prazer, basta lembrar de Caná (Jo 2,1). As suas virtudes satélites são a moderação, a mansidão e a castidade — esta última, dizia São Josemaria, não é negação nenhuma; é "afirmação jubilosa", é "triunfante afirmação do amor".</p>
+    <p class="pergunta">Eu uso algo bom — a comida, uma tela, o descanso, um prazer legítimo — como instrumento para o mal, ou em excesso desordenado? Eu vivo a temperança com alegria, ou como um fardo ressentido?</p>
+  </section>
+
+  <!-- BLOCO 5 -->
+  <section class="block" id="b5">
+    <span class="block-label">V</span>
+    <h2>Como se conquistam as virtudes</h2>
+
+    <p>O Catecismo resume o caminho inteiro numa frase só: as virtudes humanas são adquiridas pela educação, por atos deliberados, e por uma perseverança sempre retomada com esforço (CIC 1810).</p>
+
+    <p>Mas antes de entrar nesses três passos, quero fazer um esclarecimento que evita um erro muito comum: virtude não é a razão vencendo os sentimentos à força — é a razão e o sentimento alinhados. Santo Tomás faz uma distinção interessante: quem age bem contra a própria paixão, só à base do esforço da vontade, age de forma continente — já é louvável, mas ainda não é a virtude plena. A virtude de verdade acontece quando a própria sensibilidade já está educada e reage certo: eu sinto desagrado com a mentira, satisfação em ser sincero; a minha leitura emocional da situação já é, ela mesma, a leitura certa. Por isso a virtude é uma disposição gravada pela razão na própria afetividade. Um Padre da Igreja resumia bem: "como a chuva vem das nuvens, os sentimentos vêm das ideias."</p>
+
+    <p>Tem uma imagem simples, do livro "A Fortaleza", de Dom Rafael Sifuentes, que ajuda a lembrar disso: a pessoa virtuosa tem <strong>cabeça de gelo, coração de fogo e braço de ferro</strong> — pensa com serenidade e clareza, ama com intensidade, e age com firmeza. É quase o mesmo triângulo que a psicologia usa hoje na terapia cognitivo-comportamental: cognição, afetividade e comportamento — trabalhar as ideias e as ações para, com o tempo, reeducar o próprio sentimento.</p>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 760 150" width="100%" style="max-width:680px">
+        <g font-family="var(--sans)">
+          <rect x="10" y="30" width="220" height="90" fill="#fbf8f1" stroke="#a8823c" stroke-width="2" rx="8"/>
+          <text x="120" y="65" text-anchor="middle" font-size="14" fill="#7a2331" font-weight="700">VER e AMAR</text>
+          <text x="120" y="85" text-anchor="middle" font-size="12" fill="#5a5042">Cristo, os santos, o exemplo</text>
+          <path d="M235 75 L 270 75" stroke="#a8823c" stroke-width="3" marker-end="url(#arrow)"/>
+          
+          <rect x="275" y="30" width="220" height="90" fill="#fbf8f1" stroke="#a8823c" stroke-width="2" rx="8"/>
+          <text x="385" y="65" text-anchor="middle" font-size="14" fill="#7a2331" font-weight="700">QUERER</text>
+          <text x="385" y="85" text-anchor="middle" font-size="12" fill="#5a5042">atos deliberados, não mecânicos</text>
+          <path d="M500 75 L 535 75" stroke="#a8823c" stroke-width="3" marker-end="url(#arrow)"/>
+          
+          <rect x="540" y="30" width="210" height="90" fill="#fbf8f1" stroke="#a8823c" stroke-width="2" rx="8"/>
+          <text x="645" y="65" text-anchor="middle" font-size="14" fill="#7a2331" font-weight="700">PERSEVERAR</text>
+          <text x="645" y="85" text-anchor="middle" font-size="12" fill="#5a5042">árvore, não poste</text>
+        </g>
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#a8823c"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <p>O primeiro passo é a educação — as virtudes entram pelos olhos. Quem nunca viu a virtude ao vivo, nos pais, nos amigos, em bons exemplos, dificilmente entende a essência dela; vê a moral como um conjunto de imposições frias. Por isso o meio de formação insubstituível é contemplar as virtudes em Cristo, meditando o Evangelho, e conhecer as vidas dos santos, em quem Cristo se reflete como num espelho.</p>
+
+    <p>O segundo passo são os atos deliberados — a vontade que decide de verdade. Não são deliberados os atos puramente mecânicos, as rotinas viciadas, os comportamentos apenas reativos. É preciso um "querer" formulado com toda a alma, não um simples "eu gostaria". Como dizia São Josemaria: "um querer sem querer é o teu" (Caminho, 714).</p>
+
+    <p>E o terceiro passo é a perseverança — a árvore, não o poste. Um poste "continua" no lugar, mas só se deteriora com o tempo. Uma árvore continua crescendo, floresce, dá frutos. "Começar é de todos; perseverar, de santos" (Caminho, 983). E essa perseverança precisa ser refletida, não emocional; sustentada pela contrição quando a gente falha, pela humildade diante do próprio fracasso, e por um otimismo confiante: "fracassei? Não fracassei — adquiri experiência. Para a frente!"</p>
+
+    <p>Deixo com vocês um último conselho bem prático: não é a simples repetição mecânica de um ato que gera virtude. Um soldado obrigado a varrer o quartel todos os dias, sem nunca enxergar aquilo como um bem, não adquire a virtude da ordem — só cumpre pena. O que gera hábito de verdade é o ato acompanhado da experiência de que aquilo foi bom. E uma estratégia que funciona muito bem é agir um pouco além do que hoje a gente "é capaz": quem se acha tímido demais para falar em público pode começar fazendo uma pergunta em voz alta numa reunião pequena. Custa da primeira vez; custa menos da segunda; e pouco a pouco aquilo se torna natural. E vale o alerta simétrico: assim como a virtude se ganha agindo bem repetidamente, ela também se perde agindo mal repetidamente — cada pequena concessão cauteriza um pouco a consciência.</p>
+
+    <blockquote>
+      "Nada aperfeiçoa tanto a personalidade como a correspondência à graça." 
+      <cite>São Josemaria, Sulco, 443</cite>
+    </blockquote>
+  </section>
+
+  <!-- BLOCO 6 -->
+  <section class="block" id="b6">
+    <span class="block-label">VI</span>
+    <h2>Máscaras e beatice</h2>
+
+    <p>Dois autores, duas gerações, o mesmo alerta. Um fala em "máscaras de virtude" e em duas "viroses" espirituais — o orgulho, que finge virtude só para se admirar, e o hedonismo, que rejeita toda virtude que exija esforço. O outro batiza um retrato ainda mais afiado, o do "beato": alguém que confunde caridade com falta de caráter; que espera tudo de Deus, mas não faz o menor esforço pessoal — o que, na verdade, é tentar a Deus, não confiar Nele. É alguém que ignora, entre as virtudes humanas, uma em especial: a valentia. "Quando operário, mau companheiro; quando empregado, mau cavalheiro." E a conclusão, sem meias palavras: a beatice é um vício como outro qualquer.</p>
+
+    <p>A síntese das duas fontes é a mesma: a santidade não pede menos personalidade humana — pede mais. "Quem disse que prescindir das virtudes humanas é humildade? Hoje, mais do que nunca, precisamos ser muito homens." E, no fundo, é a mesma ideia de antes: nada aperfeiçoa tanto a personalidade como a correspondência à graça. A graça não apaga o caráter — ela o revela em plenitude.</p>
+  </section>
+
+  <!-- BLOCO 7 -->
+  <section class="block" id="b7">
+    <span class="block-label">VII</span>
+    <h2>Cristo, modelo perfeito de virtude</h2>
+
+    <div class="section-img-container">
+      <img src="christ_model.png" alt="Ilustração do Modelo Perfeito">
+    </div>
+
+    <p>Chegamos ao centro da nossa conversa. Eu não quero apenas dizer que Cristo "praticou" as virtudes — quero ir mais fundo: Cristo é o único homem cuja natureza, perfeita e sem pecado, nunca encontrou obstáculo algum para viver a virtude. Em nós, o desenvolvimento das virtudes esbarra em inclinações desordenadas e maus hábitos. Nele, não. Por isso Ele pôde viver, sem atrito nenhum entre o humano e o divino, tudo o que há de mais comum na vida de um homem.</p>
+
+    <blockquote>"Tudo o que era humano, nEle era virtude."</blockquote>
+
+    <p>Vejam a prudência: o discernimento diante da armadilha do tributo a César (Mt 22,15-21); "sede prudentes como as serpentes e simples como as pombas" (Mt 10,16); e o silêncio, antes da resposta que não trai nem a justiça nem a misericórdia, diante da mulher adúltera (Jo 8,1-11).</p>
+
+    <p>Vejam a justiça: o Juízo Final, onde Ele se identifica com o mais pequeno dos irmãos (Mt 25,31-46); a purificação do templo, o zelo pela justiça devida à casa do Pai (Mt 21,12-13); e a bem-aventurança — "bem-aventurados os que têm fome e sede de justiça" (Mt 5,6).</p>
+
+    <p>Vejam a fortaleza: Getsêmani, a angústia real, e ainda assim a decisão firme — "não seja feita a minha vontade, mas a tua" (Lc 22,39-44); e aquele detalhe do evangelho de Lucas, fácil de passar despercebido: quando chega a hora, Ele "endureceu o rosto para ir a Jerusalém" (Lc 9,51).</p>
+
+    <p>E vejam a temperança: o jejum e as tentações no deserto (Mt 4,1-11) — o domínio pleno sobre a fome real, sem que ela se torne senhora da vontade. Toda a cena do deserto antecede e sustenta a missão pública inteira.</p>
+
+    <p>E há um lado mais "carnal" desse modelo, que eu quero dizer sem pressa: Cristo também viveu o cansaço — sentou-se, exausto, à beira de um poço —, a fome e a sede, o choro real pela morte do amigo Lázaro, que "chorou... não por conveniência, mas porque estava realmente comovido em seu coração" (Jo 11,36), e o trabalho manual e silencioso de Nazaré, trinta anos antes de qualquer palavra pública.</p>
+
+    <blockquote>"Bendito trabalho o dos homens! Bendita fadiga!"</blockquote>
+
+    <p>E, por fim, a coroa de tudo isso: as virtudes teologais em Cristo. A fé — ao centurião, Ele diz: "em ninguém encontrei tamanha fé em Israel" (Mt 8,10). A esperança — diante do túmulo de Lázaro: "eu sou a ressurreição e a vida" (Jo 11,25). E a caridade, a maior de todas: "ninguém tem maior amor do que aquele que dá a vida pelos seus amigos" (Jo 15,13) — e Ele a vive, literalmente, na Cruz.</p>
+
+    <p>Santo Tomás ensina algo que eu quero deixar bem marcado: sem caridade, nenhuma virtude — humana ou infusa — tem mérito sobrenatural. É a caridade que, no fim, faz a água e os muros do canal se tornarem uma única coisa viva.</p>
+  </section>
+
+  <!-- BLOCO 8 -->
+  <section class="block" id="b8">
+    <span class="block-label">VIII</span>
+    <h2>Onde está a verdadeira mudança</h2>
+
+    <p>A meta de toda a vida cristã, e de todas as virtudes cristãs, é a identificação com Cristo — "até atingir o estado do homem perfeito, à medida da estatura completa de Cristo" (Ef 4,13). E aqui eu quero acrescentar a chave decisiva: essa identificação não acontece ao lado da vida humana, num compartimento "espiritual" separado — acontece dentro dela, na medida em que a vida humana é vivida com verdade.</p>
+
+    <p>É a ruptura entre a religião e a vida — viver um domingo voltado para Deus e uma semana inteira como se Ele não estivesse lá — que gera exatamente aquela beatice de que eu falei antes.</p>
+
+    <blockquote>"Ou ficamos vencidos pelo trabalho, ou o santificamos. Não há meio-termo."</blockquote>
+
+    <p>Deixo essa pergunta para vocês levarem para a segunda-feira: este trabalho, esta reunião, esta conversa difícil — vai ser vencida por mim, ou vai ser santificada por mim? Não é preciso abandonar a profissão para buscar a santidade. É preciso unir de novo o que só nós, com o nosso próprio esforço ou a nossa própria covardia, separamos: os afazeres humanos e a consciência diante de Deus.</p>
+  </section>
+
+  <!-- BLOCO 9 -->
+  <section class="block" id="b9">
+    <span class="block-label">IX</span>
+    <h2>Fechamento</h2>
+
+    <p>Volto, para fechar, à imagem do canal, com o quadro completo: os muros somos nós, construídos pedra sobre pedra pelo esforço diário de sermos prudentes, justos, fortes e temperantes. A água é a graça de Deus, que Ele mesmo promete a quem constrói. Nenhuma virtude sobrenatural nasce no vazio; e nenhum esforço humano, por si só, basta.</p>
+
+    <p>Então esse é o convite que deixo para esta semana: escolham um único muro para reforçar. Um ato concreto de fortaleza — terminar até o fim o que dá vontade de abandonar. De prudência — uma decisão pensada com calma, não por impulso. De justiça — um gesto justo com alguém que depende de vocês. Ou de temperança — um pequeno excesso do qual vocês vão abrir mão. E confiem: onde há muro, a água de Deus não falta.</p>
+
+    <p style="text-align:center; margin-top:48px; font-style:italic; font-size: 1.2rem; color:var(--wine-deep);">"Torna-te o que és" — não por conta própria, mas deixando que a graça edifique, sobre o alicerce que só nós podemos construir, a estatura completa de Cristo.</p>
+  </section>
+
+  <div class="refs">
+    <h3>Fontes</h3>
+    <p>
+      Francisco Faus, <em>A Conquista das Virtudes</em>. Jesús Urteaga, <em>O Valor Divino do Humano</em> (Quadrante, 2ª ed., 2016). Catecismo da Igreja Católica, nn. 1803-1830. São Josemaria Escrivá — <em>Caminho, Sulco, Forja, Amigos de Deus</em>. Stephen Covey, <em>Os 7 Hábitos das Pessoas Altamente Eficazes</em>.<br><br>
+      <strong>Evangelhos:</strong> Mt 4,1-11; Mt 5,6; Mt 6,1; Mt 7,12.24-27; Mt 8,10; Mt 10,16; Mt 15,7; Mt 21,12-13; Mt 22,15-21; Mt 25,31-46; Mc 14,31; Lc 9,51; Lc 14,28-30; Lc 18,9-14; Lc 22,39-44; Jo 2,1; Jo 8,1-11; Jo 11,25-36; Jo 15,13; 1 Cor 3,9-15; Ef 4,13.
+    </p>
+  </div>
+
+  <footer class="end">O Valor das Virtudes · Círculo de Formação</footer>
+
+</div>
+</body>
+</html>
