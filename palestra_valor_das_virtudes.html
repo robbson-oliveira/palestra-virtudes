@@ -451,6 +451,98 @@
     font-style: italic; 
   }
 
+  /* Super Infographic */
+  .super-infographic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 60px 0;
+    padding: 40px;
+    background: linear-gradient(145deg, var(--card), var(--paper-2));
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--rule);
+  }
+  
+  .super-infographic-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--wine-deep);
+    font-weight: 700;
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
+  
+  .info-card {
+    background: var(--paper);
+    padding: 32px 24px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    border-top-color: var(--wine);
+  }
+  
+  .info-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    color: var(--gold);
+    stroke-width: 1.2px;
+  }
+  
+  .info-title {
+    font-size: 1.3rem;
+    color: var(--wine-deep);
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: 0.05em;
+  }
+  
+  .info-subtitle {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+  
+  .info-list li {
+    font-size: 0.95rem;
+    color: var(--ink);
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .info-list li::before {
+    content: '✦';
+    color: var(--gold-soft);
+    font-size: 0.8rem;
+  }
+
   /* Footer & Refs */
   .refs { 
     font-family: var(--sans); 
@@ -687,42 +779,73 @@
       <img src="cardinal_virtues.png" alt="Ilustração das Virtudes Cardeais">
     </div>
 
-    <div class="diagram-wrap">
-      <svg viewBox="0 0 480 480" width="100%" style="max-width:380px">
-        <circle cx="240" cy="240" r="205" fill="none" stroke="#c9bb9c" stroke-width="1.5" stroke-dasharray="8 8"/>
-        <circle cx="240" cy="240" r="65" fill="#7a2331"/>
-        <text x="240" y="235" text-anchor="middle" fill="#f4efe4" font-size="14" font-family="var(--serif)" font-weight="700">VIDA</text>
-        <text x="240" y="255" text-anchor="middle" fill="#f4efe4" font-size="14" font-family="var(--serif)" font-weight="700">VIRTUOSA</text>
-        
-        <g transform="translate(0, -10) hover">
-          <circle cx="240" cy="60" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
-          <text x="240" y="55" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">PRUDÊNCIA</text>
-          <text x="240" y="72" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">auriga virtutum</text>
-        </g>
-        
-        <g transform="translate(10, 0)">
-          <circle cx="420" cy="240" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
-          <text x="420" y="235" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">JUSTIÇA</text>
-          <text x="420" y="252" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">dar o que é devido</text>
-        </g>
-        
-        <g transform="translate(0, 10)">
-          <circle cx="240" cy="420" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
-          <text x="240" y="415" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">FORTALEZA</text>
-          <text x="240" y="432" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">empreender e resistir</text>
-        </g>
-        
-        <g transform="translate(-10, 0)">
-          <circle cx="60" cy="240" r="55" fill="#fbf8f1" stroke="#a8823c" stroke-width="2"/>
-          <text x="60" y="235" text-anchor="middle" font-size="13" font-family="var(--sans)" fill="#7a2331" font-weight="600">TEMPERANÇA</text>
-          <text x="60" y="252" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="#5a5042">moderar, não anular</text>
-        </g>
-        
-        <line x1="240" y1="112" x2="240" y2="175" stroke="#c9bb9c" stroke-width="2"/>
-        <line x1="365" y1="240" x2="305" y2="240" stroke="#c9bb9c" stroke-width="2"/>
-        <line x1="240" y1="365" x2="240" y2="305" stroke="#c9bb9c" stroke-width="2"/>
-        <line x1="115" y1="240" x2="175" y2="240" stroke="#c9bb9c" stroke-width="2"/>
-      </svg>
+    <div class="super-infographic">
+      <div class="super-infographic-title">A Estrutura da Vida Virtuosa</div>
+      
+      <!-- Prudência -->
+      <div class="info-card">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10"></circle>
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="2" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22"></line>
+          <line x1="2" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22" y2="12"></line>
+        </svg>
+        <div class="info-title">PRUDÊNCIA</div>
+        <div class="info-subtitle">auriga virtutum (o cocheiro)</div>
+        <ul class="info-list">
+          <li>Reflexão e conselho</li>
+          <li>Juízo e discernimento</li>
+          <li>Decisão e execução</li>
+        </ul>
+      </div>
+
+      <!-- Justiça -->
+      <div class="info-card">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+           <path d="M12 3v18"></path>
+           <path d="M3 8l9-4 9 4"></path>
+           <path d="M6 8v4c0 2 2 4 6 4s6-2 6-4V8"></path>
+        </svg>
+        <div class="info-title">JUSTIÇA</div>
+        <div class="info-subtitle">dar a cada um o seu direito</div>
+        <ul class="info-list">
+          <li>Respeito à dignidade</li>
+          <li>Equidade nos juízos</li>
+          <li>Verdade nas palavras</li>
+        </ul>
+      </div>
+
+      <!-- Fortaleza -->
+      <div class="info-card">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <div class="info-title">FORTALEZA</div>
+        <div class="info-subtitle">empreender e resistir</div>
+        <ul class="info-list">
+          <li>Magnanimidade (visão)</li>
+          <li>Paciência e resistência</li>
+          <li>Constância e longo prazo</li>
+        </ul>
+      </div>
+
+      <!-- Temperança -->
+      <div class="info-card">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M8 21h8"></path>
+          <path d="M12 17v4"></path>
+          <path d="M7 4h10l-1 5c-.5 2.5-2.5 4.5-5 4.5s-4.5-2-5-4.5L7 4z"></path>
+        </svg>
+        <div class="info-title">TEMPERANÇA</div>
+        <div class="info-subtitle">moderar, não anular</div>
+        <ul class="info-list">
+          <li>Moderação e domínio</li>
+          <li>Mansidão e serenidade</li>
+          <li>Castidade e pureza</li>
+        </ul>
+      </div>
     </div>
 
     <h3>Prudência — a sabedoria da vida</h3>
